@@ -1,0 +1,61 @@
+@base_url = http://localhost:3001
+
+### Register organizer
+POST {{base_url}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Org One",
+  "email": "org1@example.com",
+  "password": "password123",
+  "role": "organizer"
+}
+
+### Login organizer
+POST {{base_url}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "org1@example.com",
+  "password": "password123"
+}
+
+### Register member
+POST {{base_url}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Member One",
+  "email": "member1@example.com",
+  "password": "password123",
+  "role": "member"
+}
+
+### Login member
+POST {{base_url}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "member1@example.com",
+  "password": "password123"
+}
+
+### Register admin (optional)
+POST {{base_url}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Admin One",
+  "email": "admin1@example.com",
+  "password": "password123",
+  "role": "admin"
+}
+
+### Login admin (optional)
+POST {{base_url}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin1@example.com",
+  "password": "password123"
+}

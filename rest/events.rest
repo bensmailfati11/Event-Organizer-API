@@ -1,0 +1,85 @@
+@base_url = http://localhost:3001
+
+# Paste your tokens here after running login requests
+@org_token = your_token_here
+@user_token = your_token_here
+@admin_token = your_token_here
+@event_id = your_event_id_here
+
+
+
+### @name login_org
+POST {{base_url}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "org1@example.com",
+  "password": "password123"
+}
+
+### @name login_user
+POST {{base_url}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "member1@example.com",
+  "password": "password123"
+}
+
+### @name login_admin
+POST {{base_url}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin1@example.com",
+  "password": "password123"
+}
+
+### Get all published events
+GET {{base_url}}/events
+
+### Get first published event
+GET {{base_url}}/events/first
+
+### @name create_event
+POST {{base_url}}/events
+Content-Type: application/json
+Authorization: Bearer {{org_token}}
+
+{
+  "title": "Tech Meetup",
+  "description": "A meetup for developers",
+  "date": "2025-12-15T18:00:00Z",
+  "location": "Paris",
+  "capacity": 50,
+  "status": "published"
+}
+
+### Get event by ID
+GET {{base_url}}/events/{{event_id}}
+
+### Update event (organizer)
+PUT {{base_url}}/events/{{event_id}}
+Content-Type: application/json
+Authorization: Bearer {{org_token}}
+
+{
+  "title": "Tech Meetup - Updated",
+  "capacity": 100
+}
+
+### Register for event (member)
+POST {{base_url}}/events/{{event_id}}/register
+Authorization: Bearer {{user_token}}
+
+### Unregister from event (member)
+DELETE {{base_url}}/events/{{event_id}}/register
+Authorization: Bearer {{user_token}}
+
+### Delete event (organizer)
+DELETE {{base_url}}/events/{{event_id}}
+Authorization: Bearer {{org_token}}
+
+### Delete event (admin)
+DELETE {{base_url}}/events/{{event_id}}
+Authorization: Bearer {{admin_token}}

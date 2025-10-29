@@ -1,0 +1,100 @@
+# Event Organizer API - Tests
+@baseUrl = http://localhost:3001/
+
+### Créer un compte administrateur
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "name": "Admin User",
+    "email": "admin@test.com",
+    "password": "admin123",
+    "role": "admin"
+}
+
+### Connexion admin
+# @name loginAdmin
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "admin@test.com",
+    "password": "admin123"
+}
+
+@adminToken = {{loginAdmin.response.body.token}}
+
+### Créer un compte utilisateur
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "name": "Regular User",
+    "email": "user@test.com",
+    "password": "user123"
+}
+
+### Connexion utilisateur
+# @name loginUser
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "user@test.com",
+    "password": "user123"
+}
+
+@userToken = {{loginUser.response.body.token}}
+
+### Obtenir tous les événements (public)
+GET {{baseUrl}}/events
+
+### Obtenir le premier événement (public)
+# @name getFirstEvent
+GET {{baseUrl}}/events/first
+
+### Créer un événement (nécessite token admin)
+# @name createEvent
+POST {{baseUrl}}/events
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+    "title": "Tech Conference 2025",
+    "description": "Annual technology conference",
+    "date": "2025-10-28T09:00:00Z",
+    "location": "Paris Expo",
+    "capacity": 100,
+    "status": "published"
+}
+
+@eventId = {{createEvent.response.body._id}}
+
+### GET après création — événement créé (par id)
+# @name getCreatedEvent
+GET {{baseUrl}}/events/{{eventId}}
+
+### Obtenir tous les événements après création (public)
+GET {{baseUrl}}/events
+
+### Mettre à jour un événement (nécessite token admin ou organizer)
+PUT {{baseUrl}}/events/{{eventId}}
+Content-Type: application/json
+Authorization: Bearer {{adminToken}}
+
+{
+    "title": "Tech Conference 2025 - Updated",
+    "capacity": 150
+}
+
+### S'inscrire à un événement (nécessite token utilisateur)
+POST {{baseUrl}}/events/{{eventId}}/register
+Authorization: Bearer {{userToken}}
+
+### Se désinscrire d'un événement (nécessite token utilisateur)
+DELETE {{baseUrl}}/events/{{eventId}}/register
+Authorization: Bearer {{userToken}}
+
+### Supprimer un événement (nécessite token admin ou organizer)
+DELETE {{baseUrl}}/events/{{eventId}}
+Authorization: Bearer {{adminToken}}
