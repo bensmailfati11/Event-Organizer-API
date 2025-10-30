@@ -5,6 +5,16 @@ import eventRoutes from "./events/index.js";
 
 const router = Router();
 
+router.get("/", (req, res) => {
+  res.json({
+    message: "Welcome to the Event Organizer API",
+    endpoints: {
+      auth: "/auth",
+      events: "/events",
+    },
+  });
+});
+
 router.use("/auth", authRoutes);
 router.use("/events", eventRoutes);
 
