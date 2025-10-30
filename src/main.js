@@ -1,11 +1,17 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
+import { engine } from "express-handlebars";
 import { connectMongo } from "#@/databases/connect-mongo.js";
 import routes from "#@/routes/index.js";
 
 const app = express();
 const port = process.env.PORT || 3001;
+
+// Set up Handlebars
+app.engine("handlebars", engine({ defaultLayout: false }));
+app.set("view engine", "handlebars");
+app.set("views", "./src/views");
 
 // Middleware
 app.use(cors());
