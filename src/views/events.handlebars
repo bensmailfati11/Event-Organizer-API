@@ -1,0 +1,27 @@
+<div class="container mx-auto px-4 py-8 reveal">
+  <h1 class="text-3xl font-bold text-gray-900 mb-8">Events</h1>
+  {{#if events.length}}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{#each events}}
+        <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-1 glow">
+          <div class="p-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">{{this.title}}</h2>
+            <p class="text-gray-600 mb-4">{{this.description}}</p>
+            <div class="space-y-2 text-sm text-gray-500">
+              <p><strong>Date:</strong> {{formatDate this.date}}</p>
+              <p><strong>Location:</strong> {{this.location}}</p>
+              <p><strong>Attendees:</strong> {{this.attendees.length}} / {{this.capacity}}</p>
+            </div>
+            <div class="mt-4">
+              <a href="/events/{{this._id}}/view" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">View Details</a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <div class="text-center py-12">
+      <p class="text-gray-500 text-lg">No events available at the moment.</p>
+    </div>
+  {{/if}}
+</div>
