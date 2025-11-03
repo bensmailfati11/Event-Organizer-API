@@ -1,0 +1,56 @@
+<div class="api-info">
+  <h1>{{title}}</h1>
+  <p>Authentication endpoints for the Event Organizer API.</p>
+</div>
+
+<h2>Authentication Endpoints</h2>
+
+<h3>User Registration</h3>
+<div class="endpoint">
+  <span class="method post">POST</span>
+  <code>/api/auth/register</code>
+</div>
+<p>Register a new user account.</p>
+<p><strong>Request Body:</strong></p>
+<pre><code>{ "username": "johndoe", "email": "john@example.com", "password":
+    "securepassword" }</code></pre>
+
+<h3>User Login</h3>
+<div class="endpoint">
+  <span class="method post">POST</span>
+  <code>/api/auth/login</code>
+</div>
+<p>Authenticate user and receive JWT token.</p>
+<p><strong>Request Body:</strong></p>
+<pre><code>{ "email": "john@example.com", "password": "securepassword" }</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code>{ "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...", "user": { "id":
+    "user_id", "username": "johndoe", "email": "john@example.com", "role":
+    "user" } }</code></pre>
+
+<h3>Get User Profile</h3>
+<div class="endpoint">
+  <span class="method get">GET</span>
+  <code>/api/auth/profile</code>
+</div>
+<p>Get current user profile information. Requires authentication.</p>
+<p><strong>Headers:</strong></p>
+<pre><code>Authorization: Bearer your-jwt-token-here</code></pre>
+
+<h2>User Roles</h2>
+<p>The API supports different user roles:</p>
+<ul>
+  <li><strong>user</strong>: Standard user with basic permissions</li>
+  <li><strong>admin</strong>: Administrator with elevated permissions</li>
+</ul>
+
+<h2>JWT Token Usage</h2>
+<p>Include the JWT token in the Authorization header for protected routes:</p>
+<pre><code>Authorization: Bearer your-jwt-token-here</code></pre>
+
+<h2>Security Notes</h2>
+<ul>
+  <li>Passwords are hashed using bcrypt</li>
+  <li>JWT tokens expire after a certain period</li>
+  <li>Use HTTPS in production</li>
+</ul>

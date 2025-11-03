@@ -1,27 +1,59 @@
-<div class="container mx-auto px-4 py-8 reveal">
-  <h1 class="text-3xl font-bold text-gray-900 mb-8">Events</h1>
-  {{#if events.length}}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {{#each events}}
-        <div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-1 glow">
-          <div class="p-6">
-            <h2 class="text-xl font-semibold text-gray-900 mb-2">{{this.title}}</h2>
-            <p class="text-gray-600 mb-4">{{this.description}}</p>
-            <div class="space-y-2 text-sm text-gray-500">
-              <p><strong>Date:</strong> {{formatDate this.date}}</p>
-              <p><strong>Location:</strong> {{this.location}}</p>
-              <p><strong>Attendees:</strong> {{this.attendees.length}} / {{this.capacity}}</p>
-            </div>
-            <div class="mt-4">
-              <a href="/events/{{this._id}}/view" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">View Details</a>
-            </div>
-          </div>
-        </div>
-      {{/each}}
-    </div>
-  {{else}}
-    <div class="text-center py-12">
-      <p class="text-gray-500 text-lg">No events available at the moment.</p>
-    </div>
-  {{/if}}
+<div class="api-info">
+  <h1>{{title}}</h1>
+  <p>Manage events in the Event Organizer API.</p>
 </div>
+
+<h2>Events Management</h2>
+
+<h3>Available Operations</h3>
+<div class="endpoint">
+  <span class="method get">GET</span>
+  <code>/api/events</code>
+  - Retrieve all events
+</div>
+<div class="endpoint">
+  <span class="method post">POST</span>
+  <code>/api/events</code>
+  - Create a new event (authentication required)
+</div>
+
+<h3>Event Details</h3>
+<p>For specific events:</p>
+<div class="endpoint">
+  <span class="method get">GET</span>
+  <code>/api/events/:id</code>
+  - Get event details by ID
+</div>
+<div class="endpoint">
+  <span class="method put">PUT</span>
+  <code>/api/events/:id</code>
+  - Update event (owner only)
+</div>
+<div class="endpoint">
+  <span class="method delete">DELETE</span>
+  <code>/api/events/:id</code>
+  - Delete event (owner only)
+</div>
+
+<h2>Event Properties</h2>
+<p>Events have the following properties:</p>
+<ul>
+  <li><strong>id</strong>: Unique identifier</li>
+  <li><strong>title</strong>: Event title</li>
+  <li><strong>description</strong>: Event description</li>
+  <li><strong>date</strong>: Event date and time</li>
+  <li><strong>location</strong>: Event location</li>
+  <li><strong>organizer</strong>: User ID of the organizer</li>
+  <li><strong>createdAt</strong>: Creation timestamp</li>
+  <li><strong>updatedAt</strong>: Last update timestamp</li>
+</ul>
+
+<h2>Example Event Creation</h2>
+<pre><code>{ "title": "Tech Conference 2024", "description": "Annual technology
+    conference", "date": "2024-12-01T10:00:00Z", "location": "Convention Center"
+    }</code></pre>
+
+<h2>Authentication</h2>
+<p>Creating, updating, or deleting events requires authentication. Include the
+  JWT token in the Authorization header:</p>
+<pre><code>Authorization: Bearer your-jwt-token-here</code></pre>

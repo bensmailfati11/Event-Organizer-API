@@ -6,12 +6,23 @@ import eventRoutes from "./events/index.js";
 const router = Router();
 
 router.get("/", (req, res) => {
-  res.json({
-    message: "Welcome to the Event Organizer API",
-    endpoints: {
-      auth: "/auth",
-      events: "/events",
-    },
+  res.render("home", {
+    title: "Home",
+    layout: "main",
+  });
+});
+
+router.get("/auth", (req, res) => {
+  res.render("auth", {
+    title: "Authentication",
+    layout: "main",
+  });
+});
+
+router.get("/events", (req, res) => {
+  res.render("events", {
+    title: "Events",
+    layout: "main",
   });
 });
 
