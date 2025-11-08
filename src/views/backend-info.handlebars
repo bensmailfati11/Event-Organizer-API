@@ -1,0 +1,114 @@
+<div class="row">
+    <div class="col-12">
+        <h2>Backend API Information</h2>
+        <p class="text-muted">Complete documentation for the Event Organizer REST API</p>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-lg-8 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">API Endpoints</h5>
+            </div>
+            <div class="card-body">
+                <p>Base URL: <code>http://localhost:3001/api</code></p>
+
+                <h6>Authentication</h6>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item">
+                        <strong>POST /api/auth/register</strong><br>
+                        Register a new user<br>
+                        <small class="text-muted">Body: { "email": "string", "password": "string", "name": "string", "role": "member|organizer" }</small>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>POST /api/auth/login</strong><br>
+                        Login user<br>
+                        <small class="text-muted">Body: { "email": "string", "password": "string" }</small>
+                    </li>
+                </ul>
+
+                <h6>Events</h6>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item">
+                        <strong>GET /api/events</strong><br>
+                        Get all published events<br>
+                        <small class="text-muted">Public endpoint</small>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>GET /api/events/first</strong><br>
+                        Get the first published event<br>
+                        <small class="text-muted">Public endpoint</small>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>GET /api/events/:id</strong><br>
+                        Get event by ID<br>
+                        <small class="text-muted">Public endpoint</small>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>POST /api/events</strong><br>
+                        Create new event (Organizers only)<br>
+                        <small class="text-muted">Requires authentication. Body: event data</small>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>PUT /api/events/:id</strong><br>
+                        Update event (Organizers only)<br>
+                        <small class="text-muted">Requires authentication. Body: updated event data</small>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>DELETE /api/events/:id</strong><br>
+                        Delete event (Organizers only)<br>
+                        <small class="text-muted">Requires authentication</small>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>POST /api/events/:id/register</strong><br>
+                        Register for event<br>
+                        <small class="text-muted">Requires authentication</small>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>DELETE /api/events/:id/register</strong><br>
+                        Unregister from event<br>
+                        <small class="text-muted">Requires authentication</small>
+                    </li>
+                </ul>
+
+                <h6>Authentication Headers</h6>
+                <p>For protected endpoints, include the JWT token in the Authorization header:</p>
+                <code>Authorization: Bearer <your-jwt-token></code>
+
+                <h6>Response Format</h6>
+                <p>All API responses follow this format:</p>
+                <pre><code>{
+  "success": true|false,
+  "data": { ... },
+  "message": "string",
+  "error": "string"  // only present if success is false
+}</code></pre>
+
+                <h6>Error Codes</h6>
+                <ul>
+                    <li><strong>400</strong> - Bad Request (validation errors)</li>
+                    <li><strong>401</strong> - Unauthorized (invalid/missing token)</li>
+                    <li><strong>403</strong> - Forbidden (insufficient permissions)</li>
+                    <li><strong>404</strong> - Not Found</li>
+                    <li><strong>500</strong> - Internal Server Error</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5 class="mb-0">Testing with REST Client</h5>
+            </div>
+            <div class="card-body">
+                <p>Use the included <code>rest/</code> directory files to test the API:</p>
+                <ul>
+                    <li><code>rest/auth.rest</code> - Authentication endpoints</li>
+                    <li><code>rest/events.rest</code> - Event management endpoints</li>
+                    <li><code>rest/tests.rest</code> - Comprehensive test suite</li>
+                </ul>
+                <p class="text-muted">These files contain pre-configured requests for testing all API functionality.</p>
+            </div>
+        </div>
+    </div>
+</div>
