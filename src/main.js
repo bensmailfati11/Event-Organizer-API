@@ -20,7 +20,7 @@ app.set("views", "./src/views");
 // -----------------------------
 app.use(cors()); // CORS for API consumers
 app.use(express.json()); // JSON bodies for API
-
+app.use(express.urlencoded({ extended: true })); // URL-encoded bodies for forms
 // -----------------------------
 // API routes under /api
 // -----------------------------

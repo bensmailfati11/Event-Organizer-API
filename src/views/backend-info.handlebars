@@ -1,0 +1,58 @@
+<div class="backend-info">
+  <h1>{{title}}</h1>
+  <p>Information about the Event Organizer API backend.</p>
+
+  <h2>Technology Stack</h2>
+  <ul>
+    <li><strong>Runtime:</strong> Node.js</li>
+    <li><strong>Framework:</strong> Express.js</li>
+    <li><strong>Database:</strong> MongoDB with Mongoose ODM</li>
+    <li><strong>Authentication:</strong> JWT (JSON Web Tokens)</li>
+    <li><strong>Password Hashing:</strong> bcryptjs</li>
+    <li><strong>Templating:</strong> Handlebars</li>
+    <li><strong>CORS:</strong> Enabled for API consumers</li>
+  </ul>
+
+  <h2>Environment Variables</h2>
+  <p>The application requires the following environment variables:</p>
+  <ul>
+    <li><code>PORT</code>: Server port (default: 3001)</li>
+    <li><code>MONGODB_URI</code>: MongoDB connection string</li>
+    <li><code>JWT_SECRET</code>: Secret key for JWT signing</li>
+  </ul>
+
+  <h2>API Endpoints</h2>
+  <p>API routes are prefixed with <code>/api</code>.</p>
+  <ul>
+    <li><strong>Auth:</strong>
+      <code>/api/auth</code>
+      (register, login, logout)</li>
+    <li><strong>Events:</strong> <code>/api/events</code> (CRUD operations)</li>
+  </ul>
+
+  <h2>Web Routes</h2>
+  <ul>
+    <li><code>/</code>: Home page</li>
+    <li><code>/login</code>: Login form</li>
+    <li><code>/logout</code>: Logout</li>
+    <li><code>/dashboard</code>: User dashboard (protected)</li>
+    <li><code>/auth</code>: Auth documentation</li>
+    <li><code>/events</code>: Events documentation</li>
+    <li><code>/backend-info</code>: This page</li>
+  </ul>
+
+  <h2>Security Features</h2>
+  <ul>
+    <li>JWT-based authentication</li>
+    <li>Password hashing with bcrypt</li>
+    <li>Role-based access control</li>
+    <li>CORS configuration</li>
+    <li>HTTP-only cookies for web sessions</li>
+  </ul>
+
+  <h2>Development</h2>
+  <p>Run the application with:</p>
+  <pre><code>npm run dev</code></pre>
+  <p>Or for production:</p>
+  <pre><code>npm start</code></pre>
+</div>

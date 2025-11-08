@@ -1,6 +1,10 @@
 <div class="api-info">
   <h1>{{title}}</h1>
-  <p>Authentication endpoints for the Event Organizer API.</p>
+  {{#if showLoginForm}}
+    <p>Login to access your dashboard.</p>
+  {{else}}
+    <p>Authentication endpoints for the Event Organizer API.</p>
+  {{/if}}
 </div>
 
 <h2>Authentication Endpoints</h2>
@@ -54,3 +58,22 @@
   <li>JWT tokens expire after a certain period</li>
   <li>Use HTTPS in production</li>
 </ul>
+
+{{#if showLoginForm}}
+  <h2>Login Form</h2>
+  {{#if error}}
+    <div class="error">{{error}}</div>
+  {{/if}}
+  <form action="/login" method="POST">
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+    </div>
+    <button type="submit">Login</button>
+  </form>
+  <p>Don't have an account? <a href="/auth">Register via API</a></p>
+{{/if}}

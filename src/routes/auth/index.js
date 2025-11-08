@@ -23,4 +23,9 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/logout", (req, res) => {
+  // For API logout, just return success; client should discard token
+  res.json({ message: "Logged out successfully" });
+});
+
 export default router;
