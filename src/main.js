@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import { engine } from "express-handlebars";
 import { connectMongo } from "#@/databases/connect-mongo.js";
 import apiRoutes from "#@/routes/index.js";
@@ -26,6 +27,7 @@ app.set("views", "src/views");
 // Common middleware
 // -----------------------------
 app.use(cors()); // CORS for API consumers
+app.use(cookieParser()); // Parse cookies for web authentication
 app.use(express.json()); // JSON bodies for API
 app.use(express.urlencoded({ extended: true })); // URL-encoded bodies for forms
 

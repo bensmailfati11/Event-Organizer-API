@@ -1,4 +1,5 @@
 import { Router } from "express";
+import jwt from "jsonwebtoken";
 import { authService } from "#@/modules/auth/index.js";
 import { eventService } from "#@/modules/events/index.js";
 import { auth } from "#@/middlewares/auth.js";
