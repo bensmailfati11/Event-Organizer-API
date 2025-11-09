@@ -1,4 +1,4 @@
-@base_url = http://localhost:3001
+@base_url = http://localhost:3001/api
 
 # Paste your tokens here after running login requests
 @org_token = your_token_here

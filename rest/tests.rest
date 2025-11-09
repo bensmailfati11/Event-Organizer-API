@@ -1,5 +1,5 @@
 # Event Organizer API - Tests
-@baseUrl = http://localhost:3001/
+@baseUrl = http://localhost:3001/api
 
 ### Créer un compte administrateur
 POST {{baseUrl}}/auth/register

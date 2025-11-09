@@ -1,4 +1,4 @@
-@base_url = http://localhost:3001
+@base_url = http://localhost:3001/api
 
 ### Register organizer
 POST {{base_url}}/auth/register
