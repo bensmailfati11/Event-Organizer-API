@@ -1,18 +1,41 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
+import { engine } from "express-handlebars";
 import { connectMongo } from "#@/databases/connect-mongo.js";
 import apiRoutes from "#@/routes/index.js";
+import webRoutes from "#@/routes/routes.js";
 
 const app = express();
 const port = process.env.PORT || 3001;
 
 // -----------------------------
+// View engine setup
+// -----------------------------
+app.engine(
+  "handlebars",
+  engine({
+    defaultLayout: "main",
+    layoutsDir: "src/views/layouts",
+  })
+);
+app.set("view engine", "handlebars");
+app.set("views", "src/views");
+
+// -----------------------------
 // Common middleware
 // -----------------------------
 app.use(cors()); // CORS for API consumers
+app.use(cookieParser()); // Parse cookies for web authentication
 app.use(express.json()); // JSON bodies for API
 app.use(express.urlencoded({ extended: true })); // URL-encoded bodies for forms
+
+// -----------------------------
+// Web routes (Handlebars views)
+// -----------------------------
+app.use("/", webRoutes);
+
 // -----------------------------
 // API routes under /api
 // -----------------------------

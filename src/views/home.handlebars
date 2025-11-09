@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-lg-8 mx-auto text-center">
+    <h1 class="display-4 mb-4">Welcome to Event Organizer</h1>
+    <p class="lead mb-4">
+      Discover and organize amazing events in your community. Join us to create
+      unforgettable experiences!
+    </p>
+
+    {{#if user}}
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Welcome back, {{user.name}}!</h4>
+        <p>Ready to explore events or manage your own?</p>
+        <hr />
+        <p class="mb-0">
+          <a href="/events" class="btn btn-primary me-2">Browse Events</a>
+          {{#if (eq user.role "organizer")}}
+            <a href="/dashboard" class="btn btn-outline-primary">My Dashboard</a>
+          {{/if}}
+        </p>
+      </div>
+    {{else}}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Get Started</h5>
+          <p class="card-text">Join our community to discover events or start
+            organizing your own.</p>
+          <a href="/auth/register" class="btn btn-primary me-2">Sign Up</a>
+          <a href="/auth/login" class="btn btn-outline-primary">Sign In</a>
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-4 mb-4">
+    <div class="card h-100">
+      <div class="card-body text-center">
+        <h5 class="card-title">Discover Events</h5>
+        <p class="card-text">Browse through a variety of events happening in
+          your area.</p>
+        <a href="/events" class="btn btn-outline-primary">View Events</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="card h-100">
+      <div class="card-body text-center">
+        <h5 class="card-title">Organize Events</h5>
+        <p class="card-text">Create and manage your own events with our
+          easy-to-use tools.</p>
+        {{#if user}}
+          <a href="/dashboard" class="btn btn-outline-primary">My Dashboard</a>
+        {{else}}
+          <a href="/auth/register" class="btn btn-outline-primary">Get Started</a>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 mb-4">
+    <div class="card h-100">
+      <div class="card-body text-center">
+        <h5 class="card-title">API Access</h5>
+        <p class="card-text">Integrate with our REST API for custom
+          applications.</p>
+        <a href="/backend-info" class="btn btn-outline-primary">API
+          Documentation</a>
+      </div>
+    </div>
+  </div>
+</div>
