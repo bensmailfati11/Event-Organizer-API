@@ -2,6 +2,38 @@
 
 A simple REST API to **create, manage, and attend events** — with **authentication**, **role-based permissions**.
 
+## 🌟 Handlebars Branch Features
+
+This branch includes **server-side rendering (SSR)** with Handlebars templating engine, providing a complete web interface alongside the REST API:
+
+### ✨ Web Interface Features
+
+- **Home Page**: Welcome page with user authentication status
+- **Authentication**: Login and registration forms with session management
+- **Events Page**: Browse all published events with registration options
+- **Dashboard**: User dashboard for organizers to manage events and view registrations
+- **API Documentation**: Interactive backend info page with endpoint details
+
+### 🛠️ Technical Implementation
+
+- **Handlebars Views**: Server-side rendered templates for dynamic content
+- **Session Management**: Cookie-based authentication for web sessions
+- **Responsive Design**: Bootstrap 5 for mobile-friendly UI
+- **Form Handling**: POST requests for login, registration, and event creation
+- **Role-Based UI**: Different features based on user roles (Member/Organizer)
+
+### 📁 New Files Added
+
+- `src/views/`: Handlebars template files
+  - `home.handlebars`: Landing page
+  - `auth.handlebars`: Login/register forms
+  - `events.handlebars`: Events listing
+  - `dashboard.handlebars`: User dashboard
+  - `backend-info.handlebars`: API documentation
+  - `layouts/main.handlebars`: Base layout template
+- `src/routes/routes.js`: Web routes for SSR pages
+- Updated `src/main.js`: Handlebars engine setup and web routes integration
+
 ---
 
 ## 🚀 Features
@@ -286,6 +318,6 @@ Open an issue or pull request — contributions are always welcome!
 
 ---
 
-This version includes **Environment setup, MongoDB, dependencies, server run, API usage, testing, troubleshooting, security** 
+This version includes **Environment setup, MongoDB, dependencies, server run, API usage, testing, troubleshooting, security**
 
 ````
