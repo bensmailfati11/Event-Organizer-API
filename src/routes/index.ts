@@ -1,11 +1,12 @@
 import { Router } from "express";
+import type { Request, Response } from "express";
 
-import authRoutes from "./auth/index.js";
-import eventRoutes from "./events/index.js";
+import authRoutes from "./auth/index.ts";
+import eventRoutes from "./events/index.ts";
 
-const router = Router();
+const router: Router = Router();
 
-router.get("/", (req, res) => {
+router.get("/", (req: Request, res: Response) => {
   res.json({
     message: "Welcome to the Event Organizer API",
     endpoints: {

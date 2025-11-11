@@ -1,17 +1,19 @@
 import express from "express";
-import { eventService } from "#@/modules/events/index.js";
-import { auth } from "#@/middlewares/auth.js";
-import { isOrganizer } from "#@/middlewares/roles.js";
+import type { Request, Response } from "express";
+import { eventService } from "../../modules/events/index.ts";
+import { auth } from "../../middlewares/auth.ts";
+import { isOrganizer } from "../../middlewares/roles.ts";
 
 const router = express.Router();
 
 // Public routes
-router.get("/", async (req, res) => {
+router.get("/", async (req: Request, res: Response) => {
   try {
     const events = await eventService.getEvents({ status: "published" });
     res.json(events);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    res.status(500).json({ message });
   }
 });
 

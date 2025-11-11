@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { User } from "../model/index.js";
+import { User } from "../model/index.ts";
 
 export const authService = {
   async register(userData) {
