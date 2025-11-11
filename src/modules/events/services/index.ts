@@ -1,4 +1,4 @@
-import { Event } from "../model/index.js";
+import { Event } from "../model/index.ts";
 
 export const eventService = {
   async createEvent(eventData, organizerId) {

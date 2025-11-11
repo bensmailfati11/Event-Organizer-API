@@ -1,11 +1,12 @@
 import "dotenv/config";
 import express from "express";
+import type { Request, Response, NextFunction, Application } from "express";
 import cors from "cors";
-import { connectMongo } from "#@/databases/connect-mongo.js";
-import apiRoutes from "#@/routes/index.js";
+import { connectMongo } from "./databases/connect-mongo.ts";
+import apiRoutes from "./routes/index.ts";
 
-const app = express();
-const port = process.env.PORT || 3001;
+const app: Application = express();
+const port: string | number = process.env.PORT || 3001;
 
 // -----------------------------
 // Common middleware
@@ -19,7 +20,7 @@ app.use("/api", apiRoutes);
 
 // -----------------------------
 // Error handling
-app.use((err, req, res, next) => {
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error(err.stack);
   res.status(500).json({ message: "Something went wrong!" });
 });
