@@ -15,12 +15,10 @@ app.use(express.json()); // JSON bodies for API
 app.use(express.urlencoded({ extended: true })); // URL-encoded bodies for forms
 // -----------------------------
 // API routes under /api
-// -----------------------------
 app.use("/api", apiRoutes);
 
 // -----------------------------
 // Error handling
-// -----------------------------
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: "Something went wrong!" });
