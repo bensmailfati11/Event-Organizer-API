@@ -1,0 +1,155 @@
+{
+  "workbench.colorTheme": "One Dark Pro",
+  "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
+  "editor.fontSize": 14,
+  "editor.lineHeight": 24,
+  "editor.renderWhitespace": "boundary",
+  "editor.minimap.enabled": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.folders.associations": {
+    "routes": "routes",
+    "middlewares": "middleware",
+    "databases": "database",
+    "modules": "module",
+    "model": "class",
+    "services": "api",
+    "auth": "secure",
+    "events": "event"
+  },
+  "material-icon-theme.files.associations": {
+    "connect-mongo.js": "database",
+    "auth.js": "key",
+    "roles.js": "key-binding",
+    "main.js": "nodejs"
+  },
+  "indentRainbow.colors": [
+    "rgba(255,255,64,0.07)",
+    "rgba(127,255,127,0.07)",
+    "rgba(255,127,255,0.07)",
+    "rgba(79,236,236,0.07)"
+  ],
+  "editor.tokenColorCustomizations": {
+    "[One Dark Pro]": {
+      "textMateRules": [
+        {
+          "scope": "keyword",
+          "settings": {
+            "foreground": "#c678dd"
+          }
+        },
+        {
+          "scope": "string",
+          "settings": {
+            "foreground": "#98c379"
+          }
+        },
+        {
+          "scope": "comment",
+          "settings": {
+            "foreground": "#3f4044",
+            "fontStyle": "italic"
+          }
+        }
+      ]
+    }
+  },
+  "workbench.colorCustomizations": {
+    "[One Dark Pro]": {
+      "editor.background": "#1a1a1a",
+      "sideBar.background": "#141414",
+      "activityBar.background": "#1a1a1a",
+      "statusBar.background": "#141414",
+      "titleBar.activeBackground": "#1a1a1a",
+      "terminal.background": "#141414",
+      "terminal.foreground": "#abb2bf",
+      "terminalCursor.background": "#528bff",
+      "terminalCursor.foreground": "#528bff",
+      "terminal.ansiBlack": "#1e2127",
+      "terminal.ansiBlue": "#61afef",
+      "terminal.ansiBrightBlack": "#5c6370",
+      "terminal.ansiBrightBlue": "#61afef",
+      "terminal.ansiBrightCyan": "#56b6c2",
+      "terminal.ansiBrightGreen": "#98c379",
+      "terminal.ansiBrightMagenta": "#c678dd",
+      "terminal.ansiBrightRed": "#e06c75",
+      "terminal.ansiBrightWhite": "#ffffff",
+      "terminal.ansiBrightYellow": "#d19a66",
+      "terminal.ansiCyan": "#56b6c2",
+      "terminal.ansiGreen": "#98c379",
+      "terminal.ansiMagenta": "#c678dd",
+      "terminal.ansiRed": "#e06c75",
+      "terminal.ansiWhite": "#abb2bf",
+      "terminal.ansiYellow": "#d19a66",
+      "terminal.selectionBackground": "#48485040"
+    }
+  },
+  "editor.suggestSelection": "first",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.smoothScrolling": true,
+  "editor.cursorBlinking": "smooth",
+  "window.zoomLevel": 0,
+  "workbench.tree.indent": 20,
+  "workbench.tree.renderIndentGuides": "always",
+  "breadcrumbs.enabled": true,
+  "terminal.integrated.fontFamily": "'Fira Code', monospace",
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    }
+  },
+  "workbench.colorCustomizations": {
+    "[One Dark Pro]": {
+      "terminal.background": "#141414",
+      "terminal.foreground": "#abb2bf",
+      "terminalCursor.background": "#528bff",
+      "terminalCursor.foreground": "#528bff",
+      "terminal.ansiBlack": "#1e2127",
+      "terminal.ansiBlue": "#61afef",
+      "terminal.ansiBrightBlack": "#5c6370",
+      "terminal.ansiBrightBlue": "#61afef",
+      "terminal.ansiBrightCyan": "#56b6c2",
+      "terminal.ansiBrightGreen": "#98c379",
+      "terminal.ansiBrightMagenta": "#c678dd",
+      "terminal.ansiBrightRed": "#e06c75",
+      "terminal.ansiBrightWhite": "#ffffff",
+      "terminal.ansiBrightYellow": "#d19a66",
+      "terminal.ansiCyan": "#56b6c2",
+      "terminal.ansiGreen": "#98c379",
+      "terminal.ansiMagenta": "#c678dd",
+      "terminal.ansiRed": "#e06c75",
+      "terminal.ansiWhite": "#abb2bf",
+      "terminal.ansiYellow": "#d19a66",
+      "terminal.selectionBackground": "#48485040",
+      "editor.background": "#1a1a1a",
+      "sideBar.background": "#141414",
+      "activityBar.background": "#1a1a1a",
+      "statusBar.background": "#141414",
+      "titleBar.activeBackground": "#1a1a1a"
+    }
+  }
+}

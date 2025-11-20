@@ -1,0 +1,26 @@
+import { Router } from "express";
+
+import authRoutes from "./auth/index.js";
+import eventRoutes from "./events/index.js";
+
+const router = Router();
+
+router.get("/", (req, res) => {
+  res.json({
+    message: "Welcome to the Event Organizer API",
+    endpoints: {
+      auth: "/auth",
+      events: "/events",
+    },
+  });
+});
+
+router.get("/welcome", (req, res) => {
+  console.log(`Request received: ${req.method} ${req.path}`);
+  res.json({ message: "Welcome to the Event Organizer API!" });
+});
+
+router.use("/auth", authRoutes);
+router.use("/events", eventRoutes);
+
+export default router;
